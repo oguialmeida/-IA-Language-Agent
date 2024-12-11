@@ -1,4 +1,4 @@
-# Language Translation API with Node.js and Transformers
+# Language Translation API with FastAPI and Transformers
 
 This project is a **Language Translation System** designed to provide advanced text translation capabilities using a transformer-based language model. The system consists of two main components:
 
