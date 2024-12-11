@@ -1,4 +1,4 @@
-# Language Translation API with Node.js and Transformers
+# Language Translation API with FastAPI and Transformers
 
 This project is a **Language Translation System** designed to provide advanced text translation capabilities using a transformer-based language model. The system consists of two main components:
 
@@ -18,17 +18,40 @@ This project is a **Language Translation System** designed to provide advanced t
 - **Middleware**: Includes input validation and error handling.
 - **Communication**: Sends translation requests to the Python agent with HTTP.
 
-### Commands
+### Install
 ```bash
 python -m venv venv
 source venv/Scripts/activate (Windows)
 source venv/bin/activate (Linux/Mac)
-pip install transformers torch protobuf sentencepiece tiktoken python-dotenv
+pip install transformers torch protobuf sentencepiece tiktoken python-dotenv fastapi[standard] uvicorn
 ```
+
+### To run
+```bash
+python run_scripts.py
+```
+
+### JSON Request example (Portuguese to English)
+```bash
+{
+    "origin_text": "Esse gordo diz mentiras.",
+    "origin_lang": "en_XX",
+    "dest_lang": "pt_XX"
+}
+```
+### The output shold bee
+
+```bash
+{
+    "translated_text": "That fat guy's lying."
+}
+```
+
+## Observations
+The way things are translated will depend on the AI ​​model you are using, some may not be as accurate in their training.
 
 ## Contributions
 Contributions are welcome! Feel free to open an issue or submit a pull request for improvements or feature suggestions.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
+[Hugging Face](https://huggingface.co/) is one of the most innovative and influential platforms for those working with AI, especially NLP, making the use of advanced models more accessible to developers and researchers. All AI models and similar libraries from this application were found there.

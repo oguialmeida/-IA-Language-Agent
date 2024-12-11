@@ -1,6 +1,9 @@
 # agent.py
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 def agent(origin_text: str, origin_lang: str, dest_lang: str) -> str:
     """

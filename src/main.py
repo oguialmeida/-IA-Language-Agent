@@ -1,12 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from dotenv import load_dotenv
-import os
 from agent import agent
 
-# Load environment variables
-load_dotenv()
 app = FastAPI()
 
 # Adding cors validation 
