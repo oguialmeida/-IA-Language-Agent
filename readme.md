@@ -36,7 +36,7 @@ python run_scripts.py
 {
     "origin_text": "Esse gordo diz mentiras.",
     "origin_lang": "pt_XX",
-    "dest_lang": "em_XX"
+    "dest_lang": "en_XX"
 }
 ```
 ### The output shold bee
