@@ -11,12 +11,20 @@ This project is a **Language Translation System** designed to provide advanced t
 - **Language Translation Engine**: Built using Python and Hugging Face Transformers.
 - **Translation Logic**: Processes input text and translates it to the desired language.
 
-### Node.js API
+### API
 - **Endpoints**:
   - `POST /translate`: Accepts text input and target language parameters.
   - `GET /status`: Checks the API's operational status.
 - **Middleware**: Includes input validation and error handling.
 - **Communication**: Sends translation requests to the Python agent with HTTP.
+
+### Commands
+```bash
+python -m venv venv
+source venv/Scripts/activate (Windows)
+source venv/bin/activate (Linux/Mac)
+pip install transformers torch protobuf sentencepiece tiktoken python-dotenv
+```
 
 ## Contributions
 Contributions are welcome! Feel free to open an issue or submit a pull request for improvements or feature suggestions.

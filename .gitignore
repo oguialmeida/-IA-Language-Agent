@@ -1,0 +1,3 @@
+virtual_env
+.vscode
+src/__pycache__
