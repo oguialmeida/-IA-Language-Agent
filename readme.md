@@ -3,7 +3,7 @@
 This project is a **Language Translation System** designed to provide advanced text translation capabilities using a transformer-based language model. The system consists of two main components:
 
 1. **Transformer Agent**: A Python-based backend that performs the actual language translation.
-2. **Node.js API**: A lightweight API that receives user input, processes it, and communicates with the transformer agent to return translated text.
+2. **Fast API**: A lightweight API that receives user input, processes it, and communicates with the transformer agent to return translated text.
 
 ## Project Structure
 
