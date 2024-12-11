@@ -26,7 +26,7 @@ source venv/bin/activate (Linux/Mac)
 pip install transformers torch protobuf sentencepiece tiktoken python-dotenv fastapi[standard] uvicorn
 ```
 
-### To run
+### To run (Windows)
 ```bash
 python run_scripts.py
 ```
