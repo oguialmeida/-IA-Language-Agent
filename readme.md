@@ -1,11 +1,11 @@
-# Language Translation API with FastAPI and Transformers
+# IA Agent API with FastAPI and Transformers
 
-This project is a **Language Translation System** designed to provide advanced text translation capabilities using a transformer-based language model. The system consists of two main components:
+This project is a **Multi-agent-back-end** designed to provide advanced text using a transformer-based language model.
 
-1. **Transformer Agent**: A Python-based backend that performs the actual language translation.
-2. **Fast API**: A lightweight API that receives user input, processes it, and communicates with the transformer agent to return translated text.
+1. **Transformers Agents**: A Python-based code that performs several agents with different functionalities.
+2. **Fast API**: A lightweight API that receives user input, processes it, and communicates with the transformer agent to returns a translated text for example.
 
-## Project Structure
+## Project Structure (Example with a Translate Model)
 
 ### Transformer Agent
 - **Language Translation Engine**: Built using Python and Hugging Face Transformers.
