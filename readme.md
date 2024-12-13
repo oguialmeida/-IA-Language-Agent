@@ -26,9 +26,14 @@ source venv/bin/activate (Linux/Mac)
 pip install transformers torch protobuf sentencepiece tiktoken python-dotenv fastapi[standard] uvicorn
 ```
 
-### To run
+### To run (Windows)
 ```bash
 python run_scripts.py
+```
+
+### To run (Linux/Mac)
+```bash
+uvicorn main:app --reload
 ```
 
 ### JSON Request example (Portuguese to English)

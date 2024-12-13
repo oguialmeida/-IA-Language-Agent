@@ -1,9 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from agent import agent
+from transformers_agents import Agents
 
+# REST framework class instantiation
 app = FastAPI()
+
+# Transformers agents class instantiation
+agent = Agents()
 
 # Adding cors validation 
 origins = ["*"]
@@ -31,7 +35,7 @@ def translate(request: TranslationRequest):
     :return: Translated text
     """
     try:
-        translated_text = agent(request.origin_text, request.origin_lang, request.dest_lang)
+        translated_text = agent.translate_agent(request.origin_text, request.origin_lang, request.dest_lang)
         return {"translated_text": translated_text}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
