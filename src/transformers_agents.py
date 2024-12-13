@@ -1,4 +1,4 @@
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from transformers import MBartForConditionalGeneration, AutoModelForCausalLM, MBart50TokenizerFast, BitsAndBytesConfig, AutoTokenizer
 from dotenv import load_dotenv
 import os
 
@@ -6,7 +6,7 @@ load_dotenv()
 
 class Agents:
 
-    def translate_agent(origin_text: str, origin_lang: str, dest_lang: str) -> str:
+    def translate_text(origin_text: str, origin_lang: str, dest_lang: str) -> str:
         """
         Method to perform text translation using MBart.
         
@@ -34,11 +34,37 @@ class Agents:
         )
 
         # Decode and return the translated text
-        translated_text = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
-        return translated_text
+        return tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
     
-    def conversational_agent():
-        return
+    def generate_text(input_text: str):
+        """
+        Method to generet text using llama.
+        
+        :param input_text: Source text to base
+        :return: generated text
+        """
+
+        # Configuração do modelo e quantização
+        model_id = os.getenv("LLAMA_MODEL")
+        quantization_config = BitsAndBytesConfig(load_in_8bit=True)
+
+        # Carregando o modelo quantizado
+        quantized_model = AutoModelForCausalLM.from_pretrained(
+            model_id, device_map="auto", torch_dtype=torch.bfloat16, quantization_config=quantization_config
+        )
+
+        # Carregando o tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+        # Tokenizando o texto de entrada
+        input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
+
+        # Gerando a saída do modelo
+        output = quantized_model.generate(**input_ids, max_new_tokens=10)
+
+        # Decodificando e retornando o resultado
+        return tokenizer.decode(output[0], skip_special_tokens=True)
+
     
     def image_generator_agent():
         return
